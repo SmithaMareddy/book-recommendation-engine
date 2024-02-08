@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommendations</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Top Book Recommendations</h1>
+    <p>Here are the recommendations for User ID: {{ user_id }}</p>
+    <ul>
+        {% for book in recommended_books %}
+            <li>
+                <strong>ISBN:</strong> {{ book['ISBN'] }}<br>
+                <strong>Title:</strong> {{ book['Book-Title'] }}<br>
+                <strong>Author:</strong> {{ book['Book-Author'] }}<br>
+                <strong>Predicted Rating:</strong> {{ book['predicted_rating'] }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
